@@ -29,7 +29,7 @@ NodeJS-MongoDB-AngularJS-CRUD-Application
 * Initial release.
 
 ## License
-The Bouncing Balls component is released under the open source MIT.
+The NodeJS-MongoDB-AngularJS-CRUD Application is released under the open source MIT.
 
 ## Author Info
 * Name : [Pathik Gandhi](http://pathikgandhi.info) (http://pathikgandhi.info)
