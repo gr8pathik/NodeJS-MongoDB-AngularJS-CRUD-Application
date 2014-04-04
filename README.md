@@ -4,19 +4,19 @@ NodeJS-MongoDB-AngularJS-CRUD-Application
 **This is Single Page CRUD Application based on NodeJS Server, MongoDB (mongojs) Database, AngularJS Framework and Twitter Bootstrap**
 
 ## Add (Create)
-![listing](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/add.png)
+![Add Record](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/add.png)
 
 ## List (Read)
-![listing](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/listing.png)
+![List all Records](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/listing.png)
 
 ## Edit (Update)
-![listing](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/edit.png)
+![Edit Record](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/edit.png)
 
 ## Delete
-![listing](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/delete.png)
+![Delete Record](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/delete.png)
 
 ## Filter
-![listing](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/filter.png)
+![Search Record](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/filter.png)
 
 ## TODO
 * Flash Messages
