@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Node MongoDB Example</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="js/angularnodecontroller.js"></script>
+</head>
+<body ng-controller="UserListCtrl">
+ <div class="container">
+    <h1>List</h1>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>User List ({{(users | filter:user).length}})</strong></h3>
+					<div class="pull-right">
+						<span class="filter" title="New User" ng-click="list()">
+							<i class="glyphicon glyphicon-refresh"></i>
+						</span>
+						<span class="filter" title="New User" ng-click="formModal(0)">
+							<i class="glyphicon glyphicon-plus"></i>
+						</span>
+					</div>
+				</div>
+				<!-- <notification ng-model="codeStatus" ng-show="codeStatus != ''"></notification> -->
+				<div class="panel-body">
+					<input type="text" class="form-control" id="task-table-filter"  ng-model="user" placeholder="Filter User" />
+				</div>
+				<table class="table table-hover" id="task-table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Password</th>
+							<th>Email</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<tr ng-show="(users | filter:user).length == 0">
+							<td>No records found</td>
+						</tr>
+						<tr ng-show="(users | filter:user).length != 0" ng-repeat="user in users | filter:user ">
+							<td>{{$index + 1}}</td>
+							<td>{{user.name}}</td>
+							<td>{{user.password}}</td>
+							<td>{{user.email}}</td>
+							<td>
+								<button type="button" class="btn btn-info" ng-click="formModal(user.id, user)"><span class="glyphicon glyphicon-pencil"></span></button>
+								<button type="button" class="btn btn-danger" ng-click="deleteModal(user.id)"><span class="glyphicon glyphicon-remove"></span></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel" ng-hide="newUser">Edit User: {{currentUser.name}}</h4>
+        <h4 class="modal-title" id="myModalLabel" ng-show="newUser">New User</h4>
+      </div>
+      <div class="modal-body">
+	      <form class="form-horizontal" role="form" name="myform" id="myform1" ng-submit="save()">
+	      		<input type="hidden" id="userId" ng-model="currentUser.id">
+			  <div class="form-group">
+			  	<label for="username" class="col-sm-2 control-label">Username</label>
+			    <div class="col-sm-8">
+					<input type="text" class="form-control" id="username" placeholder="Username" ng-model="currentUser.name" size=50 required>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="password" class="col-sm-2 control-label">Password</label>
+			    <div class="col-sm-8">
+			      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="currentUser.password" size=50 required>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="email" class="col-sm-2 control-label">Email</label>
+			    <div class="col-sm-8">
+			      <input type="email" class="form-control" id="email" placeholder="Email" ng-model="currentUser.email" size=50 required>
+			    </div>
+			  </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary">{{newUser && 'Add' || 'Edit'}}</button>
+		      </div>
+	      </form>
+	  </div>
+    </div>
+  </div>
+</div>
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Delete User</h4>
+      </div>
+      <div class="modal-body">
+      	Are you sure you want to delete??
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-primary" ng-click="deleteRecord();">Yes</button>
+		</div>
+	  </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
