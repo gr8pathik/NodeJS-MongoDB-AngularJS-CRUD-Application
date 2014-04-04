@@ -1,4 +1,23 @@
-NodeJS-MongoDB-AngularJS-CURD-Application
+NodeJS-MongoDB-AngularJS-CRUD-Application
 =========================================
 
-This is Single Page CURD Application based on NodeJS Server, MongoDB Database, AngularJS Framework and Twitter Bootstrap
+**This is Single Page CRUD Application based on NodeJS Server, MongoDB (mongojs) Database, AngularJS Framework and Twitter Bootstrap**
+
+### Listing
+![listing](http://labs.pathikgandhi.info/crud-nodejs-mongodb-angularjs/listing.png)
+
+### TODO
+* Flash Messages
+* Pagination
+* Sorting
+
+### 1.0.0
+* Initial release.
+
+## License
+The Bouncing Balls component is released under the open source MIT.
+
+## Author Info
+* Name : [Pathik Gandhi](http://pathikgandhi.info) (http://pathikgandhi.info)
+* Twitter : [gr8pathik](http://twitter.com/gr8pathik) (http://twitter.com/gr8pathik)
+* Github : [gr8pathik](http://github.com/gr8pathik) (http://github.com/gr8pathik)
