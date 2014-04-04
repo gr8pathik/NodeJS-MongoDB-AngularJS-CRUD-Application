@@ -15,11 +15,6 @@ function UserListCtrl($scope, $http, $templateCache) {
 
     var method = 'POST';
     var inserturl = 'http://localhost:1212/insertUser';
-    /*$scope.codeStatus = {
-                    type : "success",
-                    class : "alert-success",
-                    message : "Testing Message"
-                };*/
     $scope.codeStatus = '';
     $scope.newUser = true;
     function resetCurrentUserData(){

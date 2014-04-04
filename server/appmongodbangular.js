@@ -6,18 +6,6 @@ var collections = ["things"]
 var db = require("mongojs").connect(databaseUrl, collections);
 var app = express();
 console.log("Db console");
-db.things.find().sort( { _id: -1 } , function (err, users) {
-    if (err || !users) console.log("No users found");
-    else {
-        str = '[';
-        users.forEach(function (user) {
-            str = str + '{ "id" : "' + user._id + '", "name" : "' + user.username + '", "password" : "' + user.password + '", "email" : "' + user.email + '"},' + '\n';
-        });
-        str = str.trim();
-        str = str.substring(0, str.length - 1);
-        str = str + ']';
-    }
-});
 // Config
 
 app.configure(function () {
@@ -39,20 +27,20 @@ app.get('/getAllUsers', function (req, res) {
     res.header("Access-Control-Allow-Origin", "http://localhost");
     res.header("Access-Control-Allow-Methods", "GET, POST");
     db.things.find().sort( { _id: -1 } , function (err, users) {
-        if (err || !users) console.log("No users found");
+        if (err || !users || users.length == 0) var str = '[]';
         else {
             res.writeHead(200, {
                 'Content-Type': 'application/json'
             });
-            str = '[';
+            var str = '[';
             users.forEach(function (user) {
                 str = str + '{ "id" : "' + user._id + '", "name" : "' + user.username + '", "password" : "' + user.password + '", "email" : "' + user.email + '"},' + '\n';
             });
             str = str.trim();
             str = str.substring(0, str.length - 1);
             str = str + ']';
-            res.end(str);
         }
+        res.end(str);
     });
 });
 
